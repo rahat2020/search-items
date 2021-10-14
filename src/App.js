@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
+import './Global.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faTimes, faPlus } from '@fortawesome/free-solid-svg-icons';
+import SearchItem from './SearchItem/SearchItem';
 
 export default function App() {
+  const [item, setItem] = useState("")
+  const [newItem, setNewItem] = useState([])
+  console.log(newItem)
+
+  const targetEvent = (event) => {
+    setItem(event.target.value)
+  }
+
+  const addItems = (e) => {
+    e.preventDefault()
+    setNewItem((prevValue) => {
+      return [...prevValue, item]
+    })
+    setItem(" ")
+  }
   return (
     <section>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -29,10 +45,26 @@ export default function App() {
       <div className="main-part">
         <div className="container">
           <div className="box">
+            <h6 className="box-header">TAGS (optional)</h6>
+            <div className="row d-flex justify-content-center align-items-center">
+              {
+                newItem.map((val, index) => {
+                  console.log(val)
+                  return <SearchItem key={index} items={val} />
+                })
+              }
+            </div>
+
             <form>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label fw-bold">TAGS (optional)</label>
-                <input type="email" className="form-control" r-10 id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Start typing and we shall make suggestions" />
+              <div className=" mt-4 d-flex justify-content-center align-items-center">
+                <input
+                  value={item}
+                  type="text"
+                  onChange={targetEvent}
+                  className="form-control"
+                  placeholder="Start typing and we shall make suggestions" />
+
+                <button onClick={addItems} className="btn"><FontAwesomeIcon icon={faPlus} /></button>
               </div>
             </form>
           </div>
