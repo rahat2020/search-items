@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo{
+    color: #666666d0;
+    font-weight: 500;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo:hover{
+    color: #000000d0;  font-weight: 500;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#nav-item{
+    color: #2b98ff;
+    font-size: 1.5rem;
 }
-
-.App-link {
-  color: #61dafb;
+.main-part{
+    background-color: #e9e7e754;
+    height: 88vh;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.box{
+    position: absolute;
+    width: 100%;
+    margin-top: 3rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    border: 1px solid #000000d7;
+}
+form{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.form-control{
+        width:80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e9e7e742;
+        border: none;
+}
+.form-control:hover{
+    background-color:#e9e7e7b2 ;
+}
+label{
+    color: #000000a8;
+}
+::placeholder{
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 500;
 }
